@@ -94,7 +94,7 @@ static void send_packet(const TunnelListEntry *pTunnel, const IPListEntry *pFwd,
 
 	switch (pTunnel->nType)
 	{
-	case TUNNEL_TIVO:	nPort = 2190; break;
+	case TUNNEL_TIVO:	nPort = 32412; break;
 	case TUNNEL_MDNS:	nPort = 5353; break;
 	default:		return;
 	}
@@ -249,7 +249,7 @@ static int create_listeners()
 	if (tivo_sock < 0)
 		return 0;
 
-	addr.sin_port = htons(2190);
+	addr.sin_port = htons(32412);
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = INADDR_ANY;
 	if (bind(tivo_sock, (struct sockaddr*)&addr, sizeof(addr)) < 0)
